@@ -30,6 +30,8 @@ namespace ElectronicReaderLibrary.Data
         /// </summary>
         public ElectronicReader()
         {
+            this.state = ReaderState.TurnedOff;
+
             this.books = new List<BookInfo>
             {
                 new BookInfo
@@ -65,6 +67,7 @@ namespace ElectronicReaderLibrary.Data
         /// <param name="booksToSetup">The books to setup.</param>
         public ElectronicReader(IList<BookInfo> booksToSetup)
         {
+            this.state = ReaderState.TurnedOff;
             this.books = booksToSetup;
         }
 
@@ -123,8 +126,6 @@ namespace ElectronicReaderLibrary.Data
         /// <exception cref="System.InvalidOperationException"></exception>
         public void OpenTheBook(string title)
         {
-            this.ValidateReaderState(ReaderState.Active);
-
             if (string.IsNullOrEmpty(title))
             {
                 throw new ArgumentNullException(nameof(title), "The 'title' should be specified");
@@ -132,14 +133,14 @@ namespace ElectronicReaderLibrary.Data
 
             if (!this.IsBookPresentedInReader(title))
             {
-                throw new InvalidOperationException($"The book {title} has not been found in electronic reader storage");
+                throw new InvalidOperationException($"The book '{title}' has not been found in electronic reader storage");
             }
 
             var openedBook = this.GetCurrentlyOpenedBook();
 
             if (openedBook != null)
             {
-                throw new InvalidOperationException($"Electronic reader is reading {openedBook.Title} book now");
+                throw new InvalidOperationException($"Electronic reader is reading \"{openedBook.Title}\" book now");
             }
 
             this.activeBook = this.GetBookByTitle(title);
