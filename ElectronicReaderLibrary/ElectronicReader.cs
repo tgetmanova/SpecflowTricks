@@ -78,6 +78,34 @@ namespace ElectronicReaderLibrary.Data
         }
 
         /// <summary>
+        /// Turns the off reader.
+        /// </summary>
+        /// <exception cref="System.InvalidOperationException">The device is already turned off</exception>
+        public void TurnOffReader()
+        {
+            if (this.state == ReaderState.TurnedOff)
+            {
+                throw new InvalidOperationException("The device is already turned off");
+            }
+
+            this.state = ReaderState.TurnedOff;
+        }
+
+        /// <summary>
+        /// Turns the reader.
+        /// </summary>
+        /// <exception cref="System.InvalidOperationException">The device is already turned on</exception>
+        public void TurnOnReader()
+        {
+            if (this.state != ReaderState.TurnedOff)
+            {
+                throw new InvalidOperationException("The device is already turned on");
+            }
+
+            this.state = ReaderState.Active;
+        }
+
+        /// <summary>
         /// Adds the book to the reader storage.
         /// </summary>
         /// <param name="bookToAdd">The book to add.</param>
@@ -95,6 +123,8 @@ namespace ElectronicReaderLibrary.Data
         /// <exception cref="System.InvalidOperationException"></exception>
         public void OpenTheBook(string title)
         {
+            this.ValidateReaderState(ReaderState.Active);
+
             if (string.IsNullOrEmpty(title))
             {
                 throw new ArgumentNullException(nameof(title), "The 'title' should be specified");
@@ -105,7 +135,14 @@ namespace ElectronicReaderLibrary.Data
                 throw new InvalidOperationException($"The book {title} has not been found in electronic reader storage");
             }
 
-            this.activeBook = this.GetCurrentlyOpenedBook();
+            var openedBook = this.GetCurrentlyOpenedBook();
+
+            if (openedBook != null)
+            {
+                throw new InvalidOperationException($"Electronic reader is reading {openedBook.Title} book now");
+            }
+
+            this.activeBook = this.GetBookByTitle(title);
             this.state = ReaderState.Reading;
 
             var bookToUpdate = new BookInfo
@@ -122,7 +159,7 @@ namespace ElectronicReaderLibrary.Data
             };
 
             this.UpdateBookInReader(bookToUpdate);
-        }
+        }        
 
         /// <summary>
         /// Closes the book by tile.
@@ -131,6 +168,8 @@ namespace ElectronicReaderLibrary.Data
         /// <exception cref="System.InvalidOperationException"></exception>
         public void CloseTheBook(string title)
         {
+            this.ValidateReaderState(ReaderState.Reading);
+
             if (string.IsNullOrEmpty(title))
             {
                 throw new ArgumentNullException(nameof(title), "The 'title' should be specified");
@@ -199,7 +238,7 @@ namespace ElectronicReaderLibrary.Data
         /// </summary>
         /// <param name="bookUpdate">The book update.</param>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public void UpdateBookInReader(BookInfo bookUpdate)
+        private void UpdateBookInReader(BookInfo bookUpdate)
         {
             var bookToUpdate = this.books.FirstOrDefault(b => b.Title.Equals(bookUpdate.Title, StringComparison.OrdinalIgnoreCase));
             if (bookToUpdate == null)
@@ -211,12 +250,42 @@ namespace ElectronicReaderLibrary.Data
         }
 
         /// <summary>
+        /// Gets the book by title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <returns>The Book. </returns>
+        /// <exception cref="System.InvalidOperationException"></exception>
+        private BookInfo GetBookByTitle(string title)
+        {
+            var resolvedBookInfo = this.books.FirstOrDefault(b => b.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+            if (resolvedBookInfo == null)
+            {
+                throw new InvalidOperationException($"Cannot find book with title: {title}");
+            }
+
+            return resolvedBookInfo;
+        }
+
+        /// <summary>
+        /// Validates the state of the reader.
+        /// </summary>
+        /// <param name="expectedState">The expected state.</param>
+        /// <exception cref="System.InvalidOperationException"></exception>
+        private void ValidateReaderState(ReaderState expectedState)
+        {
+            if (this.state != expectedState)
+            {
+                throw new InvalidOperationException($"Invalid Reader state: {this.state}, expected: {expectedState}");
+            }
+        }
+
+        /// <summary>
         /// Validates the new book.
         /// </summary>
         /// <param name="book">The book.</param>
         /// <exception cref="System.ArgumentNullException">book - The book should be specified</exception>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public void ValidateTheNewBook(BookInfo book)
+        private void ValidateTheNewBook(BookInfo book)
         {
             var stringBuilder = new StringBuilder();
 
