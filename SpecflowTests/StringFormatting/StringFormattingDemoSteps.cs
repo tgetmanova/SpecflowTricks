@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using ElectronicReaderLibrary;
 using ElectronicReaderLibrary.Data;
 using SpecflowTests.TestUtils;
 

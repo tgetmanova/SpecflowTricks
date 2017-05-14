@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ElectronicReaderLibrary.Data
+using ElectronicReaderLibrary.Data;
+
+namespace ElectronicReaderLibrary
 {
     /// <summary>
     /// Electronic reader.
