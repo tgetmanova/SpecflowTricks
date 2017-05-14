@@ -54,6 +54,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Demo\ContextExtensions\ContextExtensionsDemoFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextExtensionsDemoFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\ContextExtensions\ContextExtensionsDemoSteps.cs" />
+    <Compile Include="Demo\ContextExtensions\FeatureExtensions.cs" />
     <Compile Include="Demo\DataTable\ArgumentsTransformationSteps.cs" />
     <Compile Include="Demo\DataTable\DataTableDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
@@ -61,6 +68,7 @@
       <DependentUpon>DataTableDemoFeature.feature</DependentUpon>
     </Compile>
     <Compile Include="Demo\DataTable\DataTableDemoSteps.cs" />
+    <Compile Include="Demo\ContextExtensions\ScenarioExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Demo\StringFormatting\StringFormattingDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
@@ -72,6 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Demo\ContextExtensions\ContextExtensionsDemoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ContextExtensionsDemoFeature.feature.cs</LastGenOutput>
+    </None>
     <None Include="Demo\DataTable\DataTableDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DataTableDemoFeature.feature.cs</LastGenOutput>
