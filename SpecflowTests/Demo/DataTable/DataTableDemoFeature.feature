@@ -6,7 +6,7 @@
 
 # Use data table to create single instance of Book - only three properies will be initialized
 # The rest of properties we will set manually in code already to the "copy" of this instance
-Scenario: Add new book to the reader
+Scenario: Add new book to the reader - horizontal table
 	Given I have electronic reader
 	When I add new book with properties
 	| Title                        | Author    | NumberOfPages |
@@ -14,6 +14,18 @@ Scenario: Add new book to the reader
 	Then new book should be added to the reader
 	| Title                        | Author    | NumberOfPages |
 	| Dependency Injection in .NET | M.Seemann | 900           |
+
+
+# The same as the sample above, but table is vertically oriented.
+# There no requirements for headers' names
+Scenario: Add new book to the reader - vertical table
+	Given I have electronic reader
+	When I add new book with properties
+	| BookProperty  | BookPropertyValue            |
+	| Title         | Dependency Injection in .NET |
+	| Author        | M.Seemann                    |
+	| NumberOfPages | 900                          |
+	Then new book 'Dependency Injection in .NET' should be added to the reader
 
 
 # Use data table to create set of instances of Book

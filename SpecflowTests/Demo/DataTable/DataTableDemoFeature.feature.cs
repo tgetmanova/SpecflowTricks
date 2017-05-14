@@ -69,11 +69,11 @@ namespace SpecflowTests.Demo.DataTable
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add new book to the reader")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add new book to the reader - horizontal table")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "DataTableDemoFeature")]
-        public virtual void AddNewBookToTheReader()
+        public virtual void AddNewBookToTheReader_HorizontalTable()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add new book to the reader", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add new book to the reader - horizontal table", ((string[])(null)));
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line 10
@@ -105,34 +105,46 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add several books to the reader")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add new book to the reader - vertical table")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "DataTableDemoFeature")]
-        public virtual void AddSeveralBooksToTheReader()
+        public virtual void AddNewBookToTheReader_VerticalTable()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add several books to the reader", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add new book to the reader - vertical table", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 22
  testRunner.Given("I have electronic reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "BookProperty",
+                        "BookPropertyValue"});
+            table3.AddRow(new string[] {
                         "Title",
+                        "Dependency Injection in .NET"});
+            table3.AddRow(new string[] {
                         "Author",
-                        "NumberOfPages"});
+                        "M.Seemann"});
             table3.AddRow(new string[] {
-                        "Dependency Injection in .NET",
-                        "M. Seemann",
+                        "NumberOfPages",
                         "900"});
-            table3.AddRow(new string[] {
-                        "CLR via C#",
-                        "J. Richter",
-                        "1300"});
-            table3.AddRow(new string[] {
-                        "Pro C# 5.0 and the .NET 4.5 Framework",
-                        "A. Troelsen",
-                        "1450"});
 #line 23
- testRunner.When("I add several books with properties", ((string)(null)), table3, "When ");
+ testRunner.When("I add new book with properties", ((string)(null)), table3, "When ");
+#line 28
+ testRunner.Then("new book \'Dependency Injection in .NET\' should be added to the reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add several books to the reader")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "DataTableDemoFeature")]
+        public virtual void AddSeveralBooksToTheReader()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add several books to the reader", ((string[])(null)));
+#line 33
+this.ScenarioSetup(scenarioInfo);
+#line 34
+ testRunner.Given("I have electronic reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Title",
@@ -150,8 +162,27 @@ this.ScenarioSetup(scenarioInfo);
                         "Pro C# 5.0 and the .NET 4.5 Framework",
                         "A. Troelsen",
                         "1450"});
-#line 28
- testRunner.Then("new books should be added to the reader", ((string)(null)), table4, "Then ");
+#line 35
+ testRunner.When("I add several books with properties", ((string)(null)), table4, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Author",
+                        "NumberOfPages"});
+            table5.AddRow(new string[] {
+                        "Dependency Injection in .NET",
+                        "M. Seemann",
+                        "900"});
+            table5.AddRow(new string[] {
+                        "CLR via C#",
+                        "J. Richter",
+                        "1300"});
+            table5.AddRow(new string[] {
+                        "Pro C# 5.0 and the .NET 4.5 Framework",
+                        "A. Troelsen",
+                        "1450"});
+#line 40
+ testRunner.Then("new books should be added to the reader", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -162,28 +193,28 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AddNewBookToTheReaderWithInnerPropertiesSpecified()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add new book to the reader with inner properties specified", ((string[])(null)));
-#line 36
+#line 48
 this.ScenarioSetup(scenarioInfo);
-#line 37
+#line 49
  testRunner.Given("I have electronic reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Title",
                         "Author",
                         "NumberOfPages",
                         "StateInReader",
                         "ElectronicInfo.DataFormat",
                         "ElectronicInfo.SizeInMB"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "Dependency Injection in .NET",
                         "M.Seemann",
                         "900",
                         "Unloaded",
                         "Pdf",
                         "45"});
-#line 38
- testRunner.When("I add new book with all of properties", ((string)(null)), table5, "When ");
-#line 41
+#line 50
+ testRunner.When("I add new book with all of properties", ((string)(null)), table6, "When ");
+#line 53
  testRunner.Then("new book \'Dependency Injection in .NET\' should be added to the reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
