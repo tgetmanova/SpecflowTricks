@@ -54,30 +54,30 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DataTable\ArgumentsTransformationSteps.cs" />
-    <Compile Include="DataTable\DataTableDemoFeature.feature.cs">
+    <Compile Include="Demo\DataTable\ArgumentsTransformationSteps.cs" />
+    <Compile Include="Demo\DataTable\DataTableDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataTableDemoFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="DataTable\DataTableDemoSteps.cs" />
+    <Compile Include="Demo\DataTable\DataTableDemoSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringFormatting\StringFormattingDemoFeature.feature.cs">
+    <Compile Include="Demo\StringFormatting\StringFormattingDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StringFormattingDemoFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="StringFormatting\StringFormattingDemoSteps.cs" />
+    <Compile Include="Demo\StringFormatting\StringFormattingDemoSteps.cs" />
     <Compile Include="TestUtils\TestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="DataTable\DataTableDemoFeature.feature">
+    <None Include="Demo\DataTable\DataTableDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DataTableDemoFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="StringFormatting\StringFormattingDemoFeature.feature">
+    <None Include="Demo\StringFormatting\StringFormattingDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>StringFormattingDemoFeature.feature.cs</LastGenOutput>
     </None>
@@ -88,6 +88,7 @@
       <Name>ElectronicReaderLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

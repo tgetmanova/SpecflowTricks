@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using TechTalk.SpecFlow;
 
-namespace SpecflowTests.StringFormatting
+namespace SpecflowTests.Demo.StringFormatting
 {
     [Binding]
     public sealed class StringFormattingDemoSteps

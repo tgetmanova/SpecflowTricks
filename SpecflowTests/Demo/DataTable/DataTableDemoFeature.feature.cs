@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SpecflowTests.DataTable
+namespace SpecflowTests.Demo.DataTable
 {
     using TechTalk.SpecFlow;
     
@@ -48,7 +48,7 @@ namespace SpecflowTests.DataTable
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "DataTableDemoFeature")))
             {
-                SpecflowTests.DataTable.DataTableDemoFeatureFeature.FeatureSetup(null);
+                SpecflowTests.Demo.DataTable.DataTableDemoFeatureFeature.FeatureSetup(null);
             }
         }
         

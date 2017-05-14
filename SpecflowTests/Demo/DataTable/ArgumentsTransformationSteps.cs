@@ -6,7 +6,7 @@ using ElectronicReaderLibrary.Data;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace SpecflowTests.DataTable
+namespace SpecflowTests.Demo.DataTable
 {
     /// <summary>
     /// Here we extract separate binding class for methods that transform data

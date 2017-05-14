@@ -8,7 +8,7 @@ using TechTalk.SpecFlow.Assist;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SpecflowTests.DataTable
+namespace SpecflowTests.Demo.DataTable
 {
     [Binding]
     public sealed class DataTableDemoSteps

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SpecflowTests.StringFormatting
+namespace SpecflowTests.Demo.StringFormatting
 {
     using TechTalk.SpecFlow;
     
@@ -48,7 +48,7 @@ namespace SpecflowTests.StringFormatting
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "StringFormattingDemoFeature")))
             {
-                SpecflowTests.StringFormatting.StringFormattingDemoFeatureFeature.FeatureSetup(null);
+                SpecflowTests.Demo.StringFormatting.StringFormattingDemoFeatureFeature.FeatureSetup(null);
             }
         }
         
