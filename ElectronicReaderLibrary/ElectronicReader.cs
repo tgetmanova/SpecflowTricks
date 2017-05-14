@@ -126,6 +126,8 @@ namespace ElectronicReaderLibrary.Data
         /// <exception cref="System.InvalidOperationException"></exception>
         public void OpenTheBook(string title)
         {
+            this.ValidateReaderState(new[] { ReaderState.Reading, ReaderState.Active });
+
             if (string.IsNullOrEmpty(title))
             {
                 throw new ArgumentNullException(nameof(title), "The 'title' should be specified");
@@ -160,7 +162,7 @@ namespace ElectronicReaderLibrary.Data
             };
 
             this.UpdateBookInReader(bookToUpdate);
-        }        
+        }
 
         /// <summary>
         /// Closes the book by tile.
@@ -169,7 +171,7 @@ namespace ElectronicReaderLibrary.Data
         /// <exception cref="System.InvalidOperationException"></exception>
         public void CloseTheBook(string title)
         {
-            this.ValidateReaderState(ReaderState.Reading);
+            this.ValidateReaderState(new[] { ReaderState.Reading });
 
             if (string.IsNullOrEmpty(title))
             {
@@ -272,11 +274,11 @@ namespace ElectronicReaderLibrary.Data
         /// </summary>
         /// <param name="expectedState">The expected state.</param>
         /// <exception cref="System.InvalidOperationException"></exception>
-        private void ValidateReaderState(ReaderState expectedState)
+        private void ValidateReaderState(ReaderState[] expectedStates)
         {
-            if (this.state != expectedState)
+            if (!expectedStates.Contains(this.state))
             {
-                throw new InvalidOperationException($"Invalid Reader state: {this.state}, expected: {expectedState}");
+                throw new InvalidOperationException($"Invalid Reader state: {this.state}, expected: {expectedStates}");
             }
         }
 
