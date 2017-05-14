@@ -46,6 +46,7 @@
     <Compile Include="Data\BookInfo.cs" />
     <Compile Include="Data\ElectronicInfo.cs" />
     <Compile Include="ElectronicReader.cs" />
+    <Compile Include="ElectronicReaderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
