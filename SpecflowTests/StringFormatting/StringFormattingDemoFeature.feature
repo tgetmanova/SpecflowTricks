@@ -22,7 +22,7 @@ Scenario: Attempt to open another book when already reading
 	Then I get validation error that contains 'Electronic reader is reading "Cookbook" book now'
 
 
-# Examples data can be injected as placeholders into string formatting
+# Examples: Test data can be injected as placeholders into string formatting
 Scenario Outline: Attempt to open non existing books again
 	Given I have electronic reader with only one book 'Cookbook'
 	And I turned on the reader
@@ -33,6 +33,20 @@ Examples:
 | BookTitle              |
 | The history of Hungary |
 | The history of Italy   |
+
+
+# Examples: separate column to validate the whole validation message
+Scenario Outline: Attempt to add new book with invalid properties
+	Given I have electronic reader with only one book 'Cookbook'
+	And I want to add book with title '<Title>', author '<Author>', number of pages '<PagesCount>' to the reader
+	When I try to add book to the reader
+	Then I get validation error that contains '<Validation>'
+
+Examples: 
+| Title                  | Author     | PagesCount | Validation                          |
+| The history of Hungary |            | 678        | The Author:  is invalid             |
+|                        | L. Kontler | 678        | The Title:  is invalid              |
+| The history of Hungary | L. Kontler | -34        | The Number of pages: -34 is invalid |
 
 
 # If we generate data only on the code-level, the information can be passed from the inside and be validated. 

@@ -154,21 +154,81 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
         }
         
+        public virtual void AttemptToAddNewBookWithInvalidProperties(string title, string author, string pagesCount, string validation, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempt to add new book with invalid properties", exampleTags);
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+ testRunner.Given("I have electronic reader with only one book \'Cookbook\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+ testRunner.And(string.Format("I want to add book with title \'{0}\', author \'{1}\', number of pages \'{2}\' to the r" +
+                        "eader", title, author, pagesCount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.When("I try to add book to the reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.Then(string.Format("I get validation error that contains \'{0}\'", validation), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Attempt to add new book with invalid properties: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StringFormattingDemoFeature")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Title", "The history of Hungary")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Author", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PagesCount", "678")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Validation", "The Author:  is invalid")]
+        public virtual void AttemptToAddNewBookWithInvalidProperties_Variant0()
+        {
+            this.AttemptToAddNewBookWithInvalidProperties("The history of Hungary", "", "678", "The Author:  is invalid", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Attempt to add new book with invalid properties: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StringFormattingDemoFeature")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Title", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Author", "L. Kontler")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PagesCount", "678")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Validation", "The Title:  is invalid")]
+        public virtual void AttemptToAddNewBookWithInvalidProperties_Variant1()
+        {
+            this.AttemptToAddNewBookWithInvalidProperties("", "L. Kontler", "678", "The Title:  is invalid", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Attempt to add new book with invalid properties: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StringFormattingDemoFeature")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Title", "The history of Hungary")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Author", "L. Kontler")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PagesCount", "-34")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Validation", "The Number of pages: -34 is invalid")]
+        public virtual void AttemptToAddNewBookWithInvalidProperties_Variant2()
+        {
+            this.AttemptToAddNewBookWithInvalidProperties("The history of Hungary", "L. Kontler", "-34", "The Number of pages: -34 is invalid", ((string[])(null)));
+#line hidden
+        }
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Attempt to open non existing book with random title")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StringFormattingDemoFeature")]
         public virtual void AttemptToOpenNonExistingBookWithRandomTitle()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempt to open non existing book with random title", ((string[])(null)));
-#line 41
+#line 55
 this.ScenarioSetup(scenarioInfo);
-#line 42
+#line 56
  testRunner.Given("I have electronic reader with only one book \'Cookbook\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 43
+#line 57
  testRunner.And("I turned on the reader", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 44
+#line 58
  testRunner.When("I try to open book with random title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 45
+#line 59
  testRunner.Then("I get validation error formatted as \'The book \'{0}\' has not been found in electro" +
                     "nic reader storage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

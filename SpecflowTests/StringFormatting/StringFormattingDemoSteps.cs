@@ -77,6 +77,41 @@ namespace SpecflowTests.StringFormatting
             }
         }
 
+        [Given(@"I want to add book with title '(.*)', author '(.*)', number of pages '(.*)' to the reader")]
+        public void GivenIWantToAddBookWithTitleAuthorNumberOfPagesToTheReader(string title, string author, int pagesCount)
+        {
+            var bookToAdd = new BookInfo
+            {
+                Title = title,
+                Author = author,
+                NumberOfPages = pagesCount,
+                ElectronicInfo = new ElectronicInfo
+                {
+                    DataFormat = DataFormat.Djvu,
+                    SizeInMegabytes = 24
+                },
+                StateInReader = BookStateInReader.Unloaded
+            };
+
+            ScenarioContext.Current.Add(nameof(bookToAdd), bookToAdd);
+        }
+
+        [When(@"I try to add book to the reader")]
+        public void WhenITryToAddBookToTheReader()
+        {
+            var bookToAdd = ScenarioContext.Current.Get<BookInfo>("bookToAdd");
+
+            try
+            {
+                this.reader.AddTheBookToTheReaderStorage(bookToAdd);
+            }
+            catch(Exception exception)
+            {
+                this.exception = exception;
+            }
+        }
+
+
         [Then(@"I get validation error that contains '(.*)'")]
         public void ThenIGetValidationErrorThatContainsTheHistoryOfHungary(string expectedValidationMessage)
         {
