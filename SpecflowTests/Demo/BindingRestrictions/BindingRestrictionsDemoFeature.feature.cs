@@ -88,16 +88,34 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reading the paper book")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reading the paper book - scenario restriction")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BindingRestrictionsDemoFeature")]
-        public virtual void ReadingThePaperBook()
+        public virtual void ReadingThePaperBook_ScenarioRestriction()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reading the paper book", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reading the paper book - scenario restriction", ((string[])(null)));
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.Given("I have bought book \'Der schwarze Obelisk\' in hard-cover", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 18
+ testRunner.When("I opened the \'Der schwarze Obelisk\' book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reading the paper book - restriction with tag")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BindingRestrictionsDemoFeature")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("paperFunctionality")]
+        public virtual void ReadingThePaperBook_RestrictionWithTag()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reading the paper book - restriction with tag", new string[] {
+                        "paperFunctionality"});
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+ testRunner.Given("I have bought book \'Der schwarze Obelisk\' in hard-cover", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
  testRunner.When("I opened the \'Der schwarze Obelisk\' book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

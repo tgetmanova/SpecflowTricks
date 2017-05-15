@@ -12,7 +12,15 @@ Scenario: Reading the electronic book with the reader
 	When I opened the 'Der schwarze Obelisk' book
 
 
-Scenario: Reading the paper book
+Scenario: Reading the paper book - scenario restriction
+	Given I have bought book 'Der schwarze Obelisk' in hard-cover
+	# This step is should be implemented separately with specific logic for the current scenario:
+	When I opened the 'Der schwarze Obelisk' book
+
+
+# we use tag to mark scenario
+@paperFunctionality
+Scenario: Reading the paper book - restriction with tag
 	Given I have bought book 'Der schwarze Obelisk' in hard-cover
 	# This step is should be implemented separately with specific logic for the current scenario:
 	When I opened the 'Der schwarze Obelisk' book

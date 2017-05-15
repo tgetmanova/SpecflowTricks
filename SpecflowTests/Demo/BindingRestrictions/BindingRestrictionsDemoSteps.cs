@@ -92,7 +92,7 @@ namespace SpecflowTests.Demo.BindingRestrictions
         }
 
         //// This is specific binding , restricted to certain Scenario:
-        [Scope(Scenario = "Reading the paper book")]
+        [Scope(Scenario = "Reading the paper book - scenario restriction")]
         [When(@"I opened the '(.*)' book")]
         public void WhenIOpenedTheBookAnotherBinding(string title)
         {
@@ -104,9 +104,27 @@ namespace SpecflowTests.Demo.BindingRestrictions
                   "Incorrect Feature name for which step binding is being executed");
 
             Assert.AreEqual(
-                  "Reading the paper book",
+                  "Reading the paper book - scenario restriction",
                   ScenarioContext.Current.ScenarioInfo.Title,
                   "Incorrect Scenario name for which step binding is being executed");
-        }     
+        }
+
+        //// we use scenario tag to bind this method
+        [Scope(Tag = "paperFunctionality")]
+        [When(@"I opened the '(.*)' book")]
+        public void WhenIOpenedTheBookAnotherBindingWithTag(string title)
+        {
+            //// Here we can write logic for opening paper book and paging
+
+            Assert.AreEqual(
+                  "BindingRestrictionsDemoFeature",
+                  FeatureContext.Current.FeatureInfo.Title,
+                  "Incorrect Feature name for which step binding is being executed");
+
+            Assert.AreEqual(
+                  "Reading the paper book - restriction with tag",
+                  ScenarioContext.Current.ScenarioInfo.Title,
+                  "Incorrect Scenario name for which step binding is being executed");
+        }
     }
 }
