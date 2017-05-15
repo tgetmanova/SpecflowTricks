@@ -20,7 +20,6 @@ namespace SpecflowTests.Demo.ContextExtensions
         //// before feature so that service lives for all scenarios in this Feature 
         //// till the end of the last scenario in Feature:
         [BeforeFeature("ContextExtensionsDemoFeatureTag")]
-        [Given(@"I have electronic reader")]
         public static void SetupElectronicReaderServiceinFeatureContext()
         {
             FeatureContext.Current.SetElectronicReaderService();
