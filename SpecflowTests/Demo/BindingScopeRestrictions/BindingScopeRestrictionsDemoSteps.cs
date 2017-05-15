@@ -6,10 +6,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using TechTalk.SpecFlow;
 
-namespace SpecflowTests.Demo.BindingRestrictions
+namespace SpecflowTests.Demo.BindingScopeRestrictions
 {
     [Binding]
-    public sealed class BindingRestrictionsDemoSteps
+    public sealed class BindingScopeRestrictionsDemoSteps
     {
         /// <summary>
         /// The reader
@@ -17,9 +17,9 @@ namespace SpecflowTests.Demo.BindingRestrictions
         private ElectronicReader reader;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BindingRestrictionsDemoSteps"/> class.
+        /// Initializes a new instance of the <see cref="BindingScopeRestrictionsDemoSteps"/> class.
         /// </summary>
-        public BindingRestrictionsDemoSteps()
+        public BindingScopeRestrictionsDemoSteps()
         {
             this.reader = new ElectronicReader();
         }

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SpecflowTests.Demo.BindingRestrictions
+namespace SpecflowTests.Demo.BindingScopeRestrictions
 {
     using TechTalk.SpecFlow;
     
@@ -23,7 +23,7 @@ namespace SpecflowTests.Demo.BindingRestrictions
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "BindingRestrictionsDemoFeature.feature"
+#line 1 "BindingScopeRestrictionsDemoFeature.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
@@ -49,7 +49,7 @@ namespace SpecflowTests.Demo.BindingRestrictions
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "BindingRestrictionsDemoFeature")))
             {
-                SpecflowTests.Demo.BindingRestrictions.BindingRestrictionsDemoFeatureFeature.FeatureSetup(null);
+                SpecflowTests.Demo.BindingScopeRestrictions.BindingRestrictionsDemoFeatureFeature.FeatureSetup(null);
             }
         }
         

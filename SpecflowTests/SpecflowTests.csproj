@@ -54,16 +54,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Demo\BindingRestrictions\BindingRestrictionsDemoFeature.feature.cs">
+    <Compile Include="Demo\BindingScopeRestrictions\BindingScopeRestrictionsDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BindingRestrictionsDemoFeature.feature</DependentUpon>
+      <DependentUpon>BindingScopeRestrictionsDemoFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="Demo\BindingRestrictions\BindingRestrictionsDemoSteps.cs" />
-    <Compile Include="Demo\BindingRestrictions\BindingRestrictionsDemo_2_Feature.feature.cs">
+    <Compile Include="Demo\BindingScopeRestrictions\BindingScopeRestrictionsDemoSteps.cs" />
+    <Compile Include="Demo\BindingScopeRestrictions\BindingScopeRestrictionsDemo_2_Feature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BindingRestrictionsDemo_2_Feature.feature</DependentUpon>
+      <DependentUpon>BindingScopeRestrictionsDemo_2_Feature.feature</DependentUpon>
     </Compile>
     <Compile Include="Demo\ContextExtensions\ContextExtensionsDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
@@ -91,13 +91,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Demo\BindingRestrictions\BindingRestrictionsDemoFeature.feature">
+    <None Include="Demo\BindingScopeRestrictions\BindingScopeRestrictionsDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>BindingRestrictionsDemoFeature.feature.cs</LastGenOutput>
+      <LastGenOutput>BindingScopeRestrictionsDemoFeature.feature.cs</LastGenOutput>
     </None>
-    <None Include="Demo\BindingRestrictions\BindingRestrictionsDemo_2_Feature.feature">
+    <None Include="Demo\BindingScopeRestrictions\BindingScopeRestrictionsDemo_2_Feature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>BindingRestrictionsDemo_2_Feature.feature.cs</LastGenOutput>
+      <LastGenOutput>BindingScopeRestrictionsDemo_2_Feature.feature.cs</LastGenOutput>
     </None>
     <None Include="Demo\ContextExtensions\ContextExtensionsDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
