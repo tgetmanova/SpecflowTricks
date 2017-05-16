@@ -72,6 +72,15 @@
     </Compile>
     <Compile Include="Demo\ContextExtensions\ContextExtensionsDemoSteps.cs" />
     <Compile Include="Demo\ContextExtensions\FeatureExtensions.cs" />
+    <Compile Include="Demo\DataContextManagement\DataContextManagementAddBookSteps.cs" />
+    <Compile Include="Demo\DataContextManagement\DataContextManagementRegisterDependenciesSteps.cs" />
+    <Compile Include="Demo\DataContextManagement\DataContextManagementCommonSteps.cs" />
+    <Compile Include="Demo\DataContextManagement\DataContextManagementDemoFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataContextManagementDemoFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\DataContextManagement\DataContextManagementOpenBookSteps.cs" />
     <Compile Include="Demo\DataTable\ArgumentsTransformationSteps.cs" />
     <Compile Include="Demo\DataTable\DataTableDemoFeature.feature.cs">
       <AutoGen>True</AutoGen>
@@ -114,6 +123,10 @@
     <None Include="Demo\ContextExtensions\ContextExtensionsDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ContextExtensionsDemoFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Demo\DataContextManagement\DataContextManagementDemoFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DataContextManagementDemoFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="Demo\DataTable\DataTableDemoFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
