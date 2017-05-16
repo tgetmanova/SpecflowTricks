@@ -6,7 +6,8 @@ This is short guide that describes how to use some Specflow amazing features
   - Using `Specflow Assist` library to create certain instances and set of instances
   - Using `Specflow Assist` library and customize instance newly created with `StepsArgumentTransformation` attribute
 - __Extensions__ for Feature and Scenario contexts to manage test data
-- Creating your own __test data context__ and share it between multiple steps binding classes
+- Creating your own __test data context__ and share it between multiple steps binding classes: 
+use built-in Specflow __BoDi dependency injection container__ to setup data context (shared dependency instance) and use _constructor injection_ of shared dependency in binding classes
 - __Strings formatting__ is steps:
   - inline formatting with placeholders passed from Scenario-level data
   - inline formatting with placeholders passed from code-level data
