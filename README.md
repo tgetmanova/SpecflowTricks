@@ -1,4 +1,4 @@
-# Specflow Tricks
+# Specflow Tricks: apart from basics
 
 This is short guide that describes how to use some Specflow amazing features
 - __Data tables__ transformation
