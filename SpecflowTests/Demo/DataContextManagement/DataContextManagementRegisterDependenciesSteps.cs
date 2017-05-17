@@ -35,12 +35,23 @@ namespace SpecflowTests.DataContextManagement
         //// constructor injection happens for IObjectContainer objectContainer
         //// then we add reader and dependent graph objects to the container
         //// so that binding classes can specify ElectronicReader dependencies (a constructor argument of type ElectronicReader).
-        [BeforeScenario("contextInjectionDemo")]
-        public void RegisterDependencies()
+        //// List of books is registered as Instance:
+        [BeforeScenario("registerInstanceAsOptionForBookList", "contextInjectionDemo")]
+        public void RegisterDependenciesWithBooksListAsInstance()
         {
             var reader = new ElectronicReader();
             objectContainer.RegisterInstanceAs(reader);
             objectContainer.RegisterInstanceAs<IList<BookInfo>>(reader.RetrieveListOfBooks().ToList());
+        }
+
+        //// The same as above, but
+        //// List of books is registered as Type:
+        [BeforeScenario("registerTypeAsOptionForBookList")]
+        public void RegisterDependenciesWithBookListAsType()
+        {
+            var reader = new ElectronicReader();
+            objectContainer.RegisterInstanceAs(reader);
+            objectContainer.RegisterTypeAs<List<BookInfo>, IList<BookInfo>>();
         }
     }
 }
